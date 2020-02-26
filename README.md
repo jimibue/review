@@ -282,27 +282,10 @@ class CreateComments < ActiveRecord::Migration
 end
 ```
 
-Aditional Options
+Additional Options
 -----------------
 
 There are a few additional options you can use when defining **relations between models**, we will cover two most commonly used ones.
-
-### class_name
-
-> _If the name of the other model cannot be derived from the association name, you can use the `:class_name` option to supply the model name. You can read more about this on [RailsGuides](http://guides.rubyonrails.org/association_basics.html#options-for-belongs-to-class-name)._
-
-_Example:_ You want the `belongs_to`relation to call for an **author**, but there are two problems:
-
-1.  There is no model called in that way.
-2.  The story table is missing an `author_id` field.
-
-_Easy fix!_ To make this work and stop your [tests from failing](https://kolosek.com/rspec-controller-test/), you just have to specify the `:foreign_key` and the actual name of the class:
-
-class Story < ApplicationRecord
-
- belongs_to :author, class_name: 'User', foreign_key: 'user_id'
-
-end
 
 ### dependent
 
